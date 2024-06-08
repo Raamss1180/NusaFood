@@ -34,7 +34,12 @@
                     <span class="links_name">Transaction</span>
                 </a>
             </li>
-            
+            <li>
+                <a href="../Feed/keluhan.html">
+                    <i class="ph ph-mailbox"></i>
+                    <span class="links_name">Feed Back</span>
+                </a>
+            </li>
             <li>
                 <a href="/login.html">
                     <i class="bx bx-log-out"></i>
@@ -53,49 +58,20 @@
            </div>
         </nav>
         <div class="home-content">
-           <h3>Transaction</h3>
-           <table class="table-data">
-              <thead>
-                 <tr>
-                    <th>Nama</th>
-                    <th>alamat</th>
-                    <th>Menu</th>
-                    <th>Harga</th>
-                    <th>Tanggal</th>
-                    <th>Action</th>
-                 </tr>
-              </thead>
-              <tbody>
-                 <tr>
-                    <td>Gaisani</td>
-                    <td>jl.pattimura no 1</td>
-                    <td>Sate padang</td>
-                    <td>15000</td>
-                    <td>
-                       <p class="success">Success</p>
-                    </td>
-                    <td>
-                       <button class="btn_detail"
-                          onclick="showDetails('Gaisani', 'jl.pattimura no 1', 'Sate padang', '15000', 'Success')">Detail</button>
-                    </td>
-                 </tr>
-                 <!-- Add more rows as needed -->
-              </tbody>
-           </table>
+            <form class="transaksi-gelap">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama"><br><br>
+                <label for="menu">Menu:</label>
+                <input type="text" id="menu" name="menu"><br><br>
+                <label for="jumlah">Jumlah:</label>
+                <input type="number" id="jumlah" name="jumlah"><br><br>
+                <label for="harga">Harga:</label>
+                <input type="number" id="harga" name="harga"><br><br>
+                <label for="alamat">Alamat:</label>
+                <input type="text" id="alamat" name="alamat"><br><br>
+                <input type="submit" value="Submit">
+              </form>
         </div>
      </section>
-     <script>
-        let sidebar = document.querySelector(".sidebar");
-        let sidebarBtn = document.querySelector(".sidebarBtn");
-        sidebarBtn.onclick = function () {
-            sidebar.classList.toggle("active");
-            if (sidebar.classList.contains("active")) {
-                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-            } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-        };
-        function showDetails(nama, alamat, menu, harga, status) {
-         alert(`Nama: ${nama}\nAlamat: ${alamat}\nMenu: ${menu}\nHarga: ${harga}\nStatus: ${status}`);
-      }
-    </script>
 </body>
 </html>

@@ -229,6 +229,59 @@ h3{
 .table-data td .success {
     color: #28a745;
 }
+.tambah-data{
+    display: inline-block;
+    text-decoration: none;
+    background-color: #261f48;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0 10px;
+    font-size: 16px;
+    transition: background-color 0.3 ease;
+}
+
+.tambah-data:hover {
+    background-color: #273082;
+}
+.transaksi-gelap {
+    max-width: 100%;
+    /* margin: 40px auto; */
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.transaksi-gelap label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.transaksi-gelap input[type="text"],.transaksi-gelap input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #444;
+  color: #fff;
+}
+
+.transaksi-gelap input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.transaksi-gelap input[type="submit"]:hover {
+  background-color: #3e8e41;
+}   
 
 /* Responsive Media Query */
 

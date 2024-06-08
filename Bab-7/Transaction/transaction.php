@@ -67,6 +67,7 @@
                     <th>Menu</th>
                     <th>Harga</th>
                     <th>Tanggal</th>
+                    <th>Status</th>
                     <th>Action</th>
                  </tr>
               </thead>
@@ -76,12 +77,13 @@
                     <td>jl.pattimura no 1</td>
                     <td>Sate padang</td>
                     <td>15000</td>
+                    <td>20-09-2021</td>
                     <td>
                        <p class="success">Success</p>
                     </td>
                     <td>
                        <button class="btn_detail"
-                          onclick="showDetails('Gaisani', 'jl.pattimura no 1', 'Sate padang', '15000', 'Success')">Detail</button>
+                          onclick="showDetails('Gaisani', 'jl.pattimura no 1', 'Sate padang', '15000', '20-09-2021', 'Success')">Detail</button>
                     </td>
                  </tr>
                  <!-- Add more rows as needed -->
@@ -98,8 +100,8 @@
                 sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
             } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
         };
-        function showDetails(nama, alamat, menu, harga, status) {
-         alert(`Nama: ${nama}\nAlamat: ${alamat}\nMenu: ${menu}\nHarga: ${harga}\nStatus: ${status}`);
+        function showDetails(nama, alamat, menu, harga, tanggal, status) {
+            alert(`Nama: ${nama}\nAlamat: ${alamat}\nMenu: ${menu}\nHarga: ${harga}\nTanggal: ${tanggal}\nStatus: ${status}`);
       }
     </script>
 </body>

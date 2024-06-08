@@ -1,0 +1,4 @@
+{
+    "editor.defaultFoldingRangeProvider": "vscode.php-language-features",
+    "editor.defaultFormatter": "vscode.php-language-features"
+}

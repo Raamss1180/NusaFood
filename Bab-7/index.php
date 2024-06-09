@@ -65,38 +65,28 @@
         <h2>Masakan Nusantara Terpopuler</h2>
     </div>
     <div class="menu-container">
-        <div class="box">
-            <div class="box-img">
-                <img src="Images/sate Madura (1).jpg" >
+    <?php
+    include 'koneksi.php';
+    $sql = "SELECT * FROM tb_menu";
+    $result = mysqli_query($koneksi, $sql);
+    if (mysqli_num_rows($result) == 0) {
+        echo "
+        <h2 style='text-align: center; color: red;'>Menu Habis</h3>";
+    }
+    while ($data = mysqli_fetch_assoc($result)) {
+        echo "
+       <div class='box'>
+            <div class='box-img'>
+                <img src='images-menu/$data[foto]' alt='Gambarnya gada' />
             </div>
-            <h2>Sate Madura</h2>
-            <h3>Sate Ayam Khas Madura Dengan Bumbu Kacang Yang Melimpah</h3>
-            <span>Rp 15.000</span>
-            <a href="pesanan.php" class='bx bx-cart-alt'></a>
-        </div>
-    
-    <div class="box">
-        <div class="box-img">
-            <img src="Images/Rendang.jpg">
-        </div>
-        <h2>Rendang</h2>
-        <h3>Makanan Khas Padang Yaitu Daging Yang Dimasak Dengan Bumbu Rempah Pilihan Yang Meresap Sampai Ke Dalam</h3>
-        <span>Rp 25.000/-</span>
-        <a href="pesanan.php" class='bx bx-cart-alt'></a>
+                <h2>$data[menu]</h2>
+                <h3>$data[deskripsi]</h3>
+                <span>Rp. $data[harga] </span>
+                <a href='pesanan.php' class='bx bx-cart-alt'></a>
+        </div>";
+        }
+    ?>
     </div>
-
-<div class="box">
-    <div class="box-img">
-        <img src="Images/soto.jpg">
-    </div>
-    <h2>Soto</h2>
-    <h3>sup yang terdiri dari kuah kaldu ayam atau daging, disajikan dengan potongan daging, telur, toge, bawang goreng, dan daun seledri</h3>
-    <span>Rp 15.000/-</span>
-    <a href="pesanan.php" class='bx bx-cart-alt'></a>
-</div>
-</div>
-</div>
-
 </section>
 <section class="services" id="services">
     <div class="services">

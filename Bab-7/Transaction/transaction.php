@@ -83,7 +83,7 @@
                     </td>
                     <td>
                        <button class="btn_detail"
-                          onclick="showDetails('Gaisani', 'jl.pattimura no 1', 'Sate padang', '15000', '20-09-2021', 'Success')">Detail</button>
+                       onclick="showDetails('Gaisani', 'jl.pattimura no 1', 'Sate padang', '15000', '20-09-2021', 'Success')">Detail</button>
                     </td>
                  </tr>
                  <!-- Add more rows as needed -->

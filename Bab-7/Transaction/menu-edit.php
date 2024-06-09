@@ -1,16 +1,16 @@
 <?php
   include '../koneksi.php';
-  $nama = $_GET['nama'];
-  if(!isset($_GET['nama'])) {
+  $id = $_GET['id'];
+  if(!isset($_GET['id'])) {
     echo "
       <script>
-        alert('Tidak ada Nama yang Terdeteksi');
+        alert('Tidak ada data yang Terdeteksi');
         window.location = 'menu.php';
       </script>
     ";
   }
 
-  $sql = "SELECT * FROM tb_menu WHERE nama = '$nama'";
+  $sql = "SELECT * FROM tb_menu WHERE id = '$id'";
   $result = mysqli_query($koneksi, $sql);
   $data = mysqli_fetch_assoc($result);
 
@@ -79,17 +79,18 @@
            </div>
         </nav>
         <div class="home-content">
-            <form action='menu-proses.php' class="transaksi-gelap" method='POST'>
-                <label for="nama">Nama:</label>
-                    <input type="text" id="nama" name="nama" placeholder="Nama" value="<?= $data['nama']?>"><br><br>
+            <form action='menu-proses.php' class="transaksi-gelap" method='POST' enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $data['id'] ?>">
+                <input type="hidden" name="fotoSblm" value="<?= $data['foto'] ?>">
                 <label for="menu">Menu:</label>
                     <input type="text" id="menu" name="menu" placeholder="Menu" value="<?= $data['menu']?>"><br><br>
-                <label for="jumlah">Jumlah:</label>
-                    <input type="text" id="jumlah" name="jumlah" placeholder="Jumlah" value="<?= $data['jumlah']?>"><br><br>
+                <label for="deskripsi">Deskripsi:</label>
+                    <input type="text" id="deskripsi" name="deskripsi" placeholder="deskripsi" value="<?= $data['deskripsi']?>"><br><br>
                 <label for="harga">Harga:</label>
                     <input type="text" id="harga" name="harga" placeholder="Harga" value="<?= $data['harga']?>"><br><br>
-                <label for="alamat">Alamat:</label>
-                    <input type="text" id="alamat" name="alamat" placeholder="Alamat" value="<?= $data['alamat']?>"><br><br>
+                <label for="foto">Foto:</label>
+                    <img src="../images-menu/<?= $data['foto'] ?>" alt="" width="200px">
+                    <input type="file" id="foto" name="foto"><br><br>
                 <button type="submit" id="edit" name="edit"> Simpan</button>
               </form>
         </div>

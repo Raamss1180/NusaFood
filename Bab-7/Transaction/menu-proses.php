@@ -1,15 +1,61 @@
 <?php
 include '../koneksi.php';
 
+function upload() {
+    $namaFile = $_FILES['foto']['name'];
+    $error = $_FILES['foto']['error'];
+    $tmpName = $_FILES['foto']['tmp_name'];
+
+    // cek apakah tidak ada gambar yang diupload
+    if($error === 4) {
+        echo "
+            <script>
+                alert('Gambar Harus Diisi');
+                window.location = 'menu-transaksi.php';
+            </script>
+        ";
+
+        return false;
+    }
+
+    // cek apakah yang diupload adalah gambar
+    $ekstentiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = explode('.', $namaFile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+    if(!in_array($ekstensiGambar, $ekstentiGambarValid)) {
+        echo "
+            <script>
+                alert('File Harus Berupa Gambar');
+                // window.location = 'menu-transaksi.php';
+            </script>
+        ";
+
+        return null;
+    }
+
+    // lolos pengecekan, upload gambar
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $ekstensiGambar;
+
+    $oke =  move_uploaded_file($tmpName, '../images-menu/' . $namaFileBaru);
+    return $namaFileBaru;
+
+}
+
 if (isset($_POST['simpan'])) {
-    $nama = $_POST['nama'];
     $menu = $_POST['menu'];
-    $jumlah = $_POST['jumlah'];
+    $deskripsi = $_POST['deskripsi'];
     $harga = $_POST['harga'];
-    $alamat = $_POST['alamat'];
+    $foto = upload();
 
+    if(!$foto) {
+        return false;
+    }
+    var_dump($menu, $deskripsi, $harga, $foto);
 
-    if (empty($nama) || empty($menu) || empty($jumlah) || empty($harga) || empty($alamat)) {
+    if (empty($menu) || empty($deskripsi) || empty($harga) || empty($foto)) {
         echo "
             <script>
                 alert('Masih Ada Data Yang Belum Anda Isi!');
@@ -17,8 +63,8 @@ if (isset($_POST['simpan'])) {
             </script>
         ";
     } else {
-        $sql = "INSERT INTO tb_menu (nama, menu, jumlah, harga, alamat) 
-                VALUES ('$nama', '$menu', '$jumlah', '$harga', '$alamat')";
+        $sql = "INSERT INTO tb_menu (menu, deskripsi, harga, foto) 
+                VALUES ('$menu', '$deskripsi', '$harga', '$foto')";
         
         if (mysqli_query($koneksi, $sql)) {
             echo "
@@ -37,19 +83,27 @@ if (isset($_POST['simpan'])) {
         }
     }
 } elseif (isset($_POST['edit'])) {
-    $nama = $_POST['nama'];
+    $id   = $_POST['id'];
     $menu = $_POST['menu'];
-    $jumlah = $_POST['jumlah'];
+    $deskripsi = $_POST['deskripsi'];
     $harga = $_POST['harga'];
-    $alamat = $_POST['alamat'];
+    $fotoSblm = $_POST['fotoSblm'];
+
+    // cek apakah user pilih gambar atau tidak
+    if($_FILES['foto']['error']) {
+        $foto = $fotoSblm;
+    }else {
+        // foto lama akan dihapus dan diganti foto baru
+        unlink('../images-menu/' . $fotoSblm);
+        $foto = upload();
+    }
 
     $sql = "UPDATE tb_menu SET 
-            nama = '$nama',
             menu = '$menu',
-            jumlah = '$jumlah',
+            deskripsi = '$deskripsi',
             harga = '$harga',
-            alamat = '$alamat'
-            WHERE nama = '$nama'";
+            foto = '$foto'
+            WHERE id = '$id'";
 
     if (mysqli_query($koneksi, $sql)) {
         echo "

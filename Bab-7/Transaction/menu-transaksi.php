@@ -58,19 +58,16 @@
            </div>
         </nav>
         <div class="home-content">
-            <form action='menu-proses.php' class="transaksi-gelap" method='POST'>
-                <label for="nama">Nama:</label>
-                    <input type="text" id="nama" name="nama" placeholder="Nama"><br><br>
+            <form action='menu-proses.php' class="transaksi-gelap" method='POST' enctype="multipart/form-data">
                 <label for="menu">Menu:</label>
                     <input type="text" id="menu" name="menu" placeholder="Menu"><br><br>
-                <label for="jumlah">Jumlah:</label>
-                    <input type="text" id="jumlah" name="jumlah" placeholder="Jumlah"><br><br>
+                <label for="deskripsi">Deskripsi:</label>
+                    <input type="text" id="deskripsi" name="deskripsi" placeholder="Deskripsi"><br><br>
                 <label for="harga">Harga:</label>
                     <input type="text" id="harga" name="harga" placeholder="Harga"><br><br>
-                <label for="alamat">Alamat:</label>
-                    <input type="text" id="alamat" name="alamat" placeholder="Alamat"><br><br>
+                <label for="foto">Foto:</label>
+                    <input type="file" id="foto" name="foto"><br><br>
                 <button type="submit" id="simpan" name="simpan"> Simpan</button>
-                <!-- <button type="submit" name="kembali">kembali</button> -->
               </form>
         </div>
      </section>

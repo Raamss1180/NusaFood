@@ -62,11 +62,10 @@
            <table class="table-data">
               <thead>
                  <tr>
-                    <th>Nama</th>
-                    <th>Menu</th>
-                    <th>Jumlah</th>
+                    <th >Menu</th>
+                    <th>Deskripsi</th>
                     <th>Harga</th>
-                    <th>Alamat</th>
+                    <th scope="col" style="width: 20%">Foto</th>
                     <th>Edit</th>
                  </tr>
               </thead>
@@ -75,33 +74,35 @@
                     include '../koneksi.php'; // Sertakan file koneksi.php
 
                     // Query untuk mengambil data layanan dari database
-                    $query = "SELECT * FROM tb_menu";
-                    $result = $koneksi->query($query);
-
+                    $sql = "SELECT * FROM tb_menu";
+                    $result = $koneksi->query($sql);
                     // Cek apakah ada data yang ditemukan
                     if ($result->num_rows > 0) {
                         // Tampilkan data layanan dalam bentuk tabel
                         while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>" . $row['nama'] . "</td>";
-                            echo "<td>" . $row['menu'] . "</td>";
-                            echo "<td>" . $row['jumlah'] . "</td>";
-                            echo "<td>" . $row['harga'] . "</td>";
-                            echo "<td>" . $row['alamat'] . "</td>";
-                            echo "<td class='aksyen'>";
-                            echo "<form action='menu-edit.php' method='get' style='display: inline-block;'>";
-                            echo "<input type='hidden' name='nama' value='" . $row['nama'] . "'>";
-                            echo "<button type='submit' class='CRUD-edit'>Edit</button>";
-                            echo "</form>";
-                            echo "<form action='menu-hapus.php' method='post' style='display: inline-block;'>";
-                            echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
-                            echo "<button type='submit' class='CRUD-hapus' onclick='return confirm(\"Apakah Anda yakin ingin menghapus layanan ini?\")'>Hapus</button>";
-                            echo "</form>";
-                            echo "</td>";
-                            echo "</tr>";
-                        }
+                        echo "
+                            <tr>
+                            <td> $row[menu] </td>
+                            <td> $row[deskripsi] </td>
+                            <td> $row[harga] </td>
+                            <td>
+                                <img src='../images-menu/$row[foto]' width='200px'>
+                            </td>
+                            <td class='aksyen'>
+                            <form action='menu-edit.php' method='get' style='display: inline-block;'>
+                            <input type='hidden' name='id' value='" . $row['id'] . "'>
+                            <button type='submit' class='CRUD-edit'>Edit</button>
+                            </form>
+                            <form action='menu-hapus.php' method='post' style='display: inline-block;'>
+                            <input type='hidden' name='id' value='" . $row['id'] . "'>
+                            <button type='submit' class='CRUD-hapus' onclick='return confirm(\"Apakah Anda yakin ingin menghapus layanan ini?\")'>Hapus</button>
+                            </form>
+                            </td>
+                            </tr>
+                        ";
+                            }
                     } else {
-                        echo "<tr><td colspan='6'>Tidak ada data layanan</td></tr>";
+                        echo "<tr><td colspan='6'>Tidak ada data menu yang tersedia</td></tr>";
                     }
 
                     // Tutup koneksi database

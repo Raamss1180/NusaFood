@@ -62,16 +62,14 @@
            <table class="table-data">
               <thead>
                  <tr>
-                    <th>Nama</th>
                     <th>Menu</th>
-                    <th>Jumlah</th>
+                    <th>Deskripsi</th>
                     <th>Harga</th>
-                    <th>Alamat</th>
+                    <th>Foto</th>
                  </tr>
               </thead>
               <tbody>
                  <tr>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

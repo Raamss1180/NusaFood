@@ -59,16 +59,14 @@
         </nav>
         <div class="home-content">
             <form class="transaksi-gelap">
-                <label for="nama">Nama:</label>
-                <input type="text" id="nama" name="nama"><br><br>
                 <label for="menu">Menu:</label>
-                <input type="text" id="menu" name="menu"><br><br>
-                <label for="jumlah">Jumlah:</label>
-                <input type="number" id="jumlah" name="jumlah"><br><br>
+                    <input type="text" id="menu" name="menu"><br><br>
+                <label for="deskripsi">Deskripsi:</label>
+                    <input type="text" id="deskripsi" name="deskripsi"><br><br>
                 <label for="harga">Harga:</label>
-                <input type="number" id="harga" name="harga"><br><br>
-                <label for="alamat">Alamat:</label>
-                <input type="text" id="alamat" name="alamat"><br><br>
+                    <input type="text" id="harga" name="harga"><br><br>
+                <label for="foto">Foto:</label>
+                    <input type="file" id="foto" name="alamfotoat"><br><br>
                 <input type="submit" value="Submit">
               </form>
         </div>

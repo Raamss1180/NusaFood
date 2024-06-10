@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    background:#17212e;
+}
+.container {
+	width: 500px;
+	margin: 0 auto;
+    margin-top: 50px;
+	padding: 20px;
+    background-color: #101720;
+    box-sizing: border-box;
+    box-shadow: 15px 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+}
+
+.container h1 {
+	text-align: center;
+    color: #ff702a;
+    font-weight: 850;
+	margin-bottom: 20px;
+}
+
+.container label {
+	display: block;
+    margin-bottom: -15px;
+    font-weight: 650;
+    color: aliceblue;
+}
+
+.container input[type="text"], .container input[type="tel"], .container select, .container input[type="number"] {
+	width: 100%;
+	padding: 10px;
+    margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.container input[type="submit"] {
+	background-color:  #ff702a ;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+    font-weight: 650;
+}
+
+.container input[type="submit"]:hover {
+	background-color:#4CAF50;
+}
+.btn{
+    display: inline-block;
+    padding:9.5px 15px;
+    background: var(--main-color);
+    color: #fff;
+    font-weight: 650;
+    font-size: 14px;
+}
+#kembali {
+    float: right;
+    background-color: #ff702a;
+    border-radius: 5px;
+    display: inline-block;
+}
+#kembali:hover {
+    background-color: #4CAF50;
+}
+#menu option:first-child{
+    display: none;
+}
